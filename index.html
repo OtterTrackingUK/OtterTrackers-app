@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OtterTrackers – Internal App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <img src="assets/logo.png" class="logo" alt="OtterTrackers Logo">
+    <h1>OtterTrackers Internal Operations Portal</h1>
+</header>
+
+<nav>
+    <button onclick="showSection('overview')">Overview</button>
+    <button onclick="showSection('otters')">Tracked Otters</button>
+    <button onclick="showSection('research')">Research Team</button>
+    <button onclick="showSection('about')">About</button>
+</nav>
+
+<main>
+    <section id="overview" class="active">
+        <h2>Operations Overview</h2>
+        <p>Welcome to the OtterTrackers internal portal. This dashboard provides access to 
+        operational data, field research notes, and GPS tracker information for otters 
+        monitored across the UK and Canada.</p>
+
+        <div class="stats">
+            <div class="card">
+                <h3>Active Otters</h3>
+                <p id="otterCount">Loading...</p>
+            </div>
+            <div class="card">
+                <h3>Regions</h3>
+                <p>UK & Canada</p>
+            </div>
+            <div class="card">
+                <h3>IoT Devices</h3>
+                <p>GPS Trackers v2.1</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="otters">
+        <h2>Tracked Otters</h2>
+        <div id="otterList" class="grid"></div>
+    </section>
+
+    <section id="research">
+        <h2>Research Team</h2>
+        <ul id="researchList"></ul>
+    </section>
+
+    <section id="about">
+        <h2>About OtterTrackers</h2>
+        <p>OtterTrackers is a conservation initiative dedicated to monitoring wild otter 
+        populations across the UK and Canada. Using GPS telemetry, environmental sensors, 
+        and field research, we help protect habitats and support scientific study.</p>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
