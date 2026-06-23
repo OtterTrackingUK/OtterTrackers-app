@@ -1,10 +1,20 @@
-# Use a lightweight web server
-FROM nginx:alpine
+# Use the official Node 22 LTS image
+FROM node:22-slim
 
-# Copy app files into Nginx's default web directory
-COPY . /usr/share/nginx/html
+# Create app directory
+WORKDIR /app
 
-# Expose port 80 for web traffic
-EXPOSE 80
+# Copy package files first (better caching)
+COPY package*.json ./
 
-# No CMD needed — Nginx runs automatically
+# Install production dependencies
+RUN npm install --production
+
+# Copy the rest of the app
+COPY . .
+
+# Expose the port App Service / Container Apps will use
+EXPOSE 8080
+
+# Start the server
+CMD ["npm", "start"]
